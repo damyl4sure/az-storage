@@ -21,7 +21,6 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v2
       with:
-        #v16.6.0 (with npm 7.19.1)
         node-version: 16.6.0
         
     - name: workdir
@@ -51,7 +50,7 @@ jobs:
     - name: Download artifact
       uses: dawidd6/action-download-artifact@v2
       with:
-        workflow: build.yml
+        workflow: "Build site"
         workflow_conclusion: success
     
     - name: Azure login
