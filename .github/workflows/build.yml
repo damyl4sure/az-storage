@@ -26,7 +26,6 @@ jobs:
         
     - name: workdir
       run: cd demo-app && \
-           rm -rf package-lock.json node_modules && \
            npm cache clean --force && \
            npm i --unsafe-perm node-sass
       
