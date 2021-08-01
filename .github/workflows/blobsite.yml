@@ -30,8 +30,8 @@ jobs:
       run: npm init --prefix demo-app
       
     - name: Install NPM packages
-      run: npm install && \
-           npm install react-scripts@latest
+      run: npm install --prefix demo-app && \
+           npm install react-scripts@latest --prefix demo-app
     
     - name: Build project
       run: npm run build --prefix demo-app
