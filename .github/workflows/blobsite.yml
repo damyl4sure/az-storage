@@ -65,7 +65,7 @@ jobs:
       with:
         azcliversion: 2.0.72
         inlineScript: |
-            az storage blob upload-batch --account-name migration45 -d '$web' -s demo-app
+            az storage blob upload-batch --account-name migration45 -d '$web' -s 'demo-app/build'
     
     - name: Azure logout
       run: |
