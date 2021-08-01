@@ -1,6 +1,6 @@
 # Pipeline for build and deploy site to az-blob storage
-name: Build_and_Deploy 
-
+name: Build_and_Deploy
+# test
 on:
   push:
     branches:
