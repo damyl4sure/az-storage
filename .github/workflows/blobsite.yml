@@ -9,8 +9,7 @@ on:
     branches:
       - deploy_react_app
 
-job1:
-
+jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
@@ -42,17 +41,6 @@ job1:
 
 
 # Release pipeline
-name2: Deploy site
-
-job2:
-
-  workflow_run:
-    workflows: 
-      - "Build site"
-    types: 
-      - completed
-
-
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
