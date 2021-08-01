@@ -30,7 +30,7 @@ jobs:
       run: npm init --prefix demo-app
       
     - name: Install NPM packages
-      run: npm cache clean && \
+      run: npm cache clean --force && \
            npm install -g n && \
            n latest \
            apt update -y
