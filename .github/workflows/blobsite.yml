@@ -30,8 +30,7 @@ jobs:
       run: npm init --prefix demo-app
       
     - name: Install NPM packages
-      run: npm install -g n && \
-           apt update -y
+      run: npm install -g n
     
     - name: Build project
       run: npm run build --prefix demo-app
