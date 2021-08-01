@@ -31,8 +31,7 @@ jobs:
       
     - name: Install NPM packages
       run: npm cache clean -f && \
-           npm install -g n && \
-           n latest && \
+           npm install && \
            apt update -y
     
     - name: Build project
