@@ -25,7 +25,7 @@ jobs:
         node-version: 16.6.0
     
     - name: Update package.json
-      run: npm update
+      run: npm init
       
     - name: Install NPM packages
       run: npm ci
