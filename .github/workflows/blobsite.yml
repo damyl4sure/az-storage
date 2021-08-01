@@ -30,8 +30,9 @@ jobs:
       run: npm init --prefix demo-app
       
     - name: Install NPM packages
-      run: npm cache clean -f && \
-           npm install && \
+      run: npm cache clean && \
+           npm install -g n && \
+           n latest \
            apt update -y
     
     - name: Build project
