@@ -47,8 +47,6 @@ on:
   workflow_run:
     workflows: 
       - "Build site"
-    branches: 
-      - deploy_react_app
     types: 
       - completed
 
