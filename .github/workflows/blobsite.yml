@@ -52,7 +52,7 @@ jobs:
     - name: Download artifact
       uses: dawidd6/action-download-artifact@v2
       with:
-        workflow: "blobsite.yml"
+        workflow: "Build_and_Deploy"
         workflow_conclusion: success
     
     - name: Azure login
