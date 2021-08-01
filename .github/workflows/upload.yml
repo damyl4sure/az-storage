@@ -2,7 +2,7 @@ name: Upload To Azure Blob Storage
 on:
   push:
     branches:
-      - dev
+      - upload_to_blob
 jobs:
   upload:
     runs-on: ubuntu-latest
