@@ -11,7 +11,6 @@ https://github.com/marketplace/actions/azure-blob-storage-upload
 
 
 Folder Structure:
------------------
 az-storage
 └── migration-resources
     ├── files
