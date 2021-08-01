@@ -27,16 +27,16 @@ jobs:
       run: cd demo-app
       
     - name: NPM init
-      run: npm init --prefix ~/.demo-app
+      run: npm init
       
-    - name: Install NPM packages
-      run: npm ci --prefix ~/.demo-app
+    #- name: Install NPM packages
+    #  run: npm ci
     
     - name: Build project
-      run: npm run build --prefix ~/.demo-app
+      run: npm run build
     
     - name: Run unit tests
-      run: npm run test --prefix ~/.demo-app
+      run: npm run test
 
     - name: Upload repo-ready build files
       uses: actions/upload-artifact@v2
