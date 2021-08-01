@@ -31,7 +31,6 @@ jobs:
       
     - name: Install NPM packages
       run: npm install --prefix demo-app
-           #npm audit fix --prefix demo-app
     
     - name: Build project
       run: npm run build --prefix demo-app
