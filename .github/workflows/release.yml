@@ -5,7 +5,7 @@ on:
     workflows: 
       - "Build site"
     branches: 
-      - main
+      - deploy_react_app
     types: 
       - completed
 
