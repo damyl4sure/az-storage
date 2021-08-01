@@ -13,6 +13,6 @@ jobs:
         with:
          connection_string: ${{ secrets.ConnectionString }}
          container_name: migration-resources
-         source_folder: /migration-resources/
+         source_folder: migration-resources
          clean_destination_folder: true
          is_recursive: true
