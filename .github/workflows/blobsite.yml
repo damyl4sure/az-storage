@@ -23,6 +23,9 @@ jobs:
       with:
         #v16.6.0 (with npm 7.19.1)
         node-version: 16.6.0
+    - name: workdir
+      run: cd ~/.demo-app
+      
     - name: NPM init
       run: npm init --prefix ~/.demo-app
       
