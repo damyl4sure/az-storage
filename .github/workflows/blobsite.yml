@@ -1,5 +1,5 @@
-# Build pipeline
-name: Build site
+# Static website pipeline for build and release to to az-blob storage
+name: Build_Deploy_site_to_az-blob
 
 on:
   push:
@@ -9,6 +9,7 @@ on:
     branches:
       - deploy_react_app
 
+#Build pipeline
 jobs:
   build:
     name: Build
@@ -40,7 +41,8 @@ jobs:
       with:
         name: repo-files
         path: demo-app/build
-        
+
+#Release pipeline
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
