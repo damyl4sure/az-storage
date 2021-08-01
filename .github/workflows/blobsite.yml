@@ -23,6 +23,8 @@ jobs:
       with:
         #v16.6.0 (with npm 7.19.1)
         node-version: 16.6.0
+    - name: NPM init
+      run: npm init --prefix ~/.demo-app
       
     - name: Install NPM packages
       run: npm ci --prefix ~/.demo-app
