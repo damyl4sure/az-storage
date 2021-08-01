@@ -48,11 +48,10 @@ jobs:
     
     steps:
     - name: Download artifact
-      uses: dawidd6/action-download-artifact@v2
+      uses: actions/download-artifact@v2.0.10
       with:
-        workflow: build.yml
-        workflow_conclusion: success
         name: repo-files
+        path: demo-app/build
     
     - name: Azure login
       uses: azure/login@v1
