@@ -11,7 +11,7 @@ jobs:
       - uses: chabad360/hugo-actions@master
       - uses: bacongobbler/azure-blob-storage-upload@v1.2.0
         with:
-          source_dir: 'az-storage'
+          source_dir: 'files'
           container_name: '$migration-resources'
           connection_string: ${{ secrets.ConnectionString }}
           sync: true
