@@ -41,7 +41,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: repo-files
-        path: /demo-app/build
+        path: /demo-app/public
 
 
 # Release pipeline
