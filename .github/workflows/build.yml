@@ -26,8 +26,8 @@ jobs:
         
     - name: workdir
       run: cd demo-app && \
-           npm cache clean --force && \
-           npm i --unsafe-perm node-sass
+           npm cache clean --force --prefix demo-app && \
+           npm i --unsafe-perm node-sass --prefix demo-app
       
     - name: Install NPM packages
       run: npm install --prefix demo-app
