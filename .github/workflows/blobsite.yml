@@ -31,7 +31,6 @@ jobs:
       
     - name: Install NPM packages
       run: npm install -g n && \
-           n latest \
            apt update -y
     
     - name: Build project
