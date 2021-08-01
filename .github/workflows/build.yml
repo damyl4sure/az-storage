@@ -1,5 +1,5 @@
-# Pipeline for build and deploy site to az-blob storage
-name: Build_and_Deploy 
+# Build pipeline
+name: Build site
 
 on:
   push:
@@ -9,7 +9,6 @@ on:
     branches:
       - deploy_react_app
 
-#Build pipeline
 jobs:
   build:
     name: Build
@@ -22,6 +21,7 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v2
       with:
+        #v16.6.0 (with npm 7.19.1)
         node-version: 16.6.0
         
     - name: workdir
@@ -29,6 +29,7 @@ jobs:
       
     - name: Install NPM packages
       run: npm install --prefix demo-app
+           #npm audit fix --prefix demo-app
     
     - name: Build project
       run: npm run build --prefix demo-app
@@ -41,8 +42,7 @@ jobs:
       with:
         name: repo-files
         path: demo-app/build
-  
-  #Release pipeline      
+        
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
