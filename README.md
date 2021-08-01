@@ -8,3 +8,17 @@ https://github.com/LanceMcCarthy/MediaFileManager/blob/main/.github/workflows/cd
 
 # To Enable sync status for static website upload
 https://github.com/marketplace/actions/azure-blob-storage-upload 
+
+
+Folder Structure:
+-----------------
+az-storage
+└── migration-resources
+    ├── files
+    │   ├── fileA
+    │   ├── fileA.txt
+    │   └── fileB.txt
+    ├── images
+    │   └── init
+    └── videos
+        └── init
