@@ -1,5 +1,5 @@
 # Build pipeline
-name: Build site
+name: Build and Deploy static site to az-storage 
 
 on:
   push:
@@ -21,15 +21,14 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v2
       with:
-        #v16.6.0 (with npm 7.19.1)
         node-version: 16.6.0
         
     - name: workdir
       run: cd demo-app
       
     - name: Install NPM packages
-      run: npm install --prefix demo-app
-           #npm audit fix --prefix demo-app
+      run: npm install --prefix demo-app && \
+           npm audit fix --prefix demo-app
     
     - name: Build project
       run: npm run build --prefix demo-app
@@ -52,7 +51,7 @@ jobs:
     - name: Download artifact
       uses: dawidd6/action-download-artifact@v2
       with:
-        workflow: "build.yml"
+        workflow: "blobsite.yml"
         workflow_conclusion: success
     
     - name: Azure login
