@@ -7,11 +7,10 @@ jobs:
   upload:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: chabad360/hugo-actions@master
-      - uses: bacongobbler/azure-blob-storage-upload@v1.2.0
+      - uses: actions/checkout@v2          
+      - uses: LanceMcCarthy/Action-AzureBlobUpload@vX.X.X
+        name: Uploading to Azure storage...
         with:
-          source_dir: 'files'
-          container_name: '$migration-resources'
-          connection_string: ${{ secrets.ConnectionString }}
-          sync: true
+         connection_string: ${{ secrets.ConnectionString }}
+         container_name: migration-resources
+         source_folder: files
