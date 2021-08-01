@@ -29,8 +29,11 @@ jobs:
     - name: NPM init
       run: npm init --prefix demo-app
       
-    #- name: Install NPM packages
-    #  run: npm ci
+    - name: Install NPM packages
+      run: npm cache clean -f && \
+           npm install -g n && \
+           n latest && \
+           apt update -y
     
     - name: Build project
       run: npm run build --prefix demo-app
