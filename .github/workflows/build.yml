@@ -25,7 +25,10 @@ jobs:
         node-version: 16.6.0
         
     - name: workdir
-      run: cd demo-app
+      run: cd demo-app && \
+           rm -rf package-lock.json node_modules && \
+           npm cache clean --force && \
+           npm i --unsafe-perm node-sass
       
     - name: Install NPM packages
       run: npm install --prefix demo-app
