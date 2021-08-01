@@ -1,0 +1,72 @@
+# Pipeline for build and deploy site to az-blob storage
+name: Build_and_Deploy 
+
+on:
+  push:
+    branches:
+      - deploy_react_app
+  pull_request:
+    branches:
+      - deploy_react_app
+
+#Build pipeline
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16.6.0
+        
+    - name: workdir
+      run: cd demo-app
+      
+    - name: Install NPM packages
+      run: npm install --prefix demo-app
+    
+    - name: Build project
+      run: npm run build --prefix demo-app
+    
+    - name: Run unit tests
+      run: npm run test --prefix demo-app
+
+    - name: Upload repo-ready build files
+      uses: actions/upload-artifact@v2
+      with:
+        name: repo-files
+        path: demo-app/build
+  
+  #Release pipeline      
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+    - name: Download artifact
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        workflow: "blobsite.yml"
+        workflow_conclusion: success
+    
+    - name: Azure login
+      uses: azure/login@v1
+      with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+    - name: Upload to Azure blob storage
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.0.72
+        inlineScript: |
+            az storage blob upload-batch --account-name migration45 -d '$web' -s ./repo-files
+    
+    - name: Azure logout
+      run: |
+            az logout
